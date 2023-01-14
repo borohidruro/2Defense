@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Actors/Enemies/EnemyBaseClass.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/enemy1-128x128.png" type="Texture" id=2]
+[ext_resource path="res://Actors/Enemies/EnemyStats/EnemyB.tres" type="Resource" id=3]
+[ext_resource path="res://Actors/Enemies/MovementPaths/PathSine.tres" type="Curve2D" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 62, 46 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 62, 46 )
+
+[node name="EnemyB" instance=ExtResource( 1 )]
+enemy_stats = ExtResource( 3 )
+
+[node name="EnemyPath" parent="." index="0"]
+curve = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="EnemyPath/EnemyUnit/HurtBoxArea2D" index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="EnemyPath/EnemyUnit" index="1"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" parent="EnemyPath/EnemyUnit/HitBoxArea2D" index="0"]
+shape = SubResource( 2 )

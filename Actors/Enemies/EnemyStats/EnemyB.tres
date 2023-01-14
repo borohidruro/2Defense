@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "class_name EnemyStats
+extends Resource
+
+export (int, 5) var movement_speed := 1
+
+"
+
+[resource]
+script = SubResource( 1 )
+movement_speed = 1

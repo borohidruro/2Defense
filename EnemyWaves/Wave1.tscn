@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Actors/Enemies/EnemyA.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EnemyWaves/WavePrototype.gd" type="Script" id=2]
+[ext_resource path="res://Actors/Enemies/EnemyB.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1150.0
+
+[node name="WavePrototype" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="EnemySpawnPerimeter" type="Area2D" parent="."]
+visible = false
+position = Vector2( 960, 540 )
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawnPerimeter"]
+shape = SubResource( 1 )
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="EnemyA" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 2160.75, 673.526 )
+
+[node name="EnemyA2" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( -247.829, 580.769 )
+
+[node name="EnemyB" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 933.589, 1744.57 )
+
+[node name="EnemyB6" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 963.827, -689.599 )
+
+[node name="EnemyB2" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 2045.18, 25.5276 )
+
+[node name="EnemyB4" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -178.82, 85.5276 )
+
+[node name="EnemyB3" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( 1960.28, 1264.7 )
+
+[node name="EnemyB5" parent="Enemies" instance=ExtResource( 3 )]
+position = Vector2( -115.717, 1100.7 )

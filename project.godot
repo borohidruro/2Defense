@@ -1,0 +1,147 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Actors/Enemies/EnemyBaseClass.gd"
+}, {
+"base": "Resource",
+"class": "EnemyStats",
+"language": "GDScript",
+"path": "res://Actors/Enemies/EnemyStats/EnemyStats.gd"
+}, {
+"base": "Area2D",
+"class": "HitBoxArea2D",
+"language": "GDScript",
+"path": "res://Objects/HitBoxArea2D.gd"
+}, {
+"base": "Area2D",
+"class": "HurtBoxArea2D",
+"language": "GDScript",
+"path": "res://Objects/HurtBoxArea2D.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Levels/Level.gd"
+}, {
+"base": "MarginContainer",
+"class": "MainMenu",
+"language": "GDScript",
+"path": "res://UI/MainMenu.gd"
+}, {
+"base": "PathFollow2D",
+"class": "PlayerShip",
+"language": "GDScript",
+"path": "res://Actors/Player/PlayerShip.gd"
+}, {
+"base": "RigidBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Weapons/Bullets/Projectile.gd"
+}, {
+"base": "Resource",
+"class": "ShipControls",
+"language": "GDScript",
+"path": "res://Actors/Player/Controls/ShipControls.gd"
+}, {
+"base": "Resource",
+"class": "ShipStats",
+"language": "GDScript",
+"path": "res://Actors/Player/PlayerStats/ShipStats.gd"
+}, {
+"base": "Node2D",
+"class": "WavePrototype",
+"language": "GDScript",
+"path": "res://EnemyWaves/WavePrototype.gd"
+} ]
+_global_script_class_icons={
+"Enemy": "",
+"EnemyStats": "",
+"HitBoxArea2D": "",
+"HurtBoxArea2D": "",
+"Level": "",
+"MainMenu": "",
+"PlayerShip": "",
+"Projectile": "",
+"ShipControls": "",
+"ShipStats": "",
+"WavePrototype": ""
+}
+
+[application]
+
+config/name="2Defense"
+run/main_scene="res://Game.tscn"
+config/icon="res://icono-64x64.png"
+
+[autoload]
+
+EventBusAndConstants="*res://AutoLoads/EventBusAndConstants.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/size/fullscreen=true
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+theme/custom="res://UI/Theme/UI_theme.tres"
+
+[input]
+
+ui_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":15,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="selection"
+2d_physics/layer_2="combat"
+2d_physics/layer_3="enemies"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

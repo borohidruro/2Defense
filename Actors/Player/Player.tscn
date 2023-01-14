@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Actors/Player/PlayerShip.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Actors/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Actors/Player/PlayerStats/Ship2Stats.tres" type="Resource" id=3]
+[ext_resource path="res://Actors/Player/PlayerStats/Ship1Stats.tres" type="Resource" id=4]
+[ext_resource path="res://Actors/Player/Controls/Ship1Controls.tres" type="Resource" id=5]
+[ext_resource path="res://Actors/Player/Controls/Ship2Controls.tres" type="Resource" id=6]
+[ext_resource path="res://Assets/ship1-128x128.png" type="Texture" id=7]
+[ext_resource path="res://Assets/ship2-128x128.png" type="Texture" id=8]
+[ext_resource path="res://Assets/shiprails-280x280.png" type="Texture" id=9]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 16.9033, -0.204862, -16.9033, 0.204862, 0, -136, 0, 0, 0, 0, -37, -130, 16, -7, 0, 0, -64, -120, 9.8995, -9.19239, -9.8995, 9.19239, -99, -94, 5.01575, -10.7378, -5.01575, 10.7378, -128, -48, 0.749154, -10.8627, -0.749154, 10.8627, -136, 0, -3, -11.5, 3, 11.5, -132, 36, -4.5, -8.5, 4.5, 8.5, -118, 68, -6.54064, -6.83794, 6.54064, 6.83794, -96, 96, -10.1083, -5.05413, 10.1083, 5.05413, -64, 120, -15.1624, -3.27032, 15.1624, 3.27032, -36, 132, 0, 0, 0, 0, 0, 136, 0, 0, 0, 0, 34, 132, -15.4597, 7.72985, 15.4597, -7.72985, 64, 120, -10.4056, 8.62175, 10.4056, -8.62175, 96, 96, -3.56359, 8.01809, 3.56359, -8.01809, 119.722, 66.2799, -2.10224, 9.52509, 2.10224, -9.52509, 131.961, 36.1423, -0.24105, 12.0243, 0.24105, -12.0243, 134.003, -0.872238, 3.57165, 9.92126, -3.57165, -9.92126, 128, -48, 11, 9.5, -11, -9.5, 96, -96, 10.4056, 5.05413, -10.4056, -5.05413, 64, -120, 6.54064, 2.08111, -6.54064, -2.08111, 36, -132, 12.0109, -0.795138, -12.0109, 0.795138, 0, -136 )
+}
+
+[node name="Player" type="Path2D"]
+curve = SubResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.729412, 0.729412, 0.729412, 1 )
+texture = ExtResource( 9 )
+
+[node name="Ship1" parent="." instance=ExtResource( 1 )]
+position = Vector2( -136.022, 0.261105 )
+rotation = 1.60609
+offset = 213.69
+ship_stats = ExtResource( 4 )
+ship_controls = ExtResource( 5 )
+
+[node name="Sprite" parent="Ship1" index="0"]
+texture = ExtResource( 7 )
+
+[node name="Ship2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 133.979, 0.238054 )
+rotation = -1.56335
+offset = 641.07
+ship_stats = ExtResource( 3 )
+ship_controls = ExtResource( 6 )
+
+[node name="Sprite" parent="Ship2" index="0"]
+texture = ExtResource( 8 )
+
+[node name="CoolDownShip1" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="CoolDownShip2" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[editable path="Ship1"]
+[editable path="Ship2"]

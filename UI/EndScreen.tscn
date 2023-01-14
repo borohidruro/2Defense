@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/background-space.png" type="Texture" id=6]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 6 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 600
+custom_constants/margin_top = 400
+custom_constants/margin_left = 600
+custom_constants/margin_bottom = 250
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+margin_left = 600.0
+margin_top = 400.0
+margin_right = 1320.0
+margin_bottom = 830.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+margin_left = 600.0
+margin_top = 400.0
+margin_right = 1320.0
+margin_bottom = 830.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+margin_left = 60.0
+margin_top = 70.0
+margin_right = 660.0
+margin_bottom = 360.0
+mouse_filter = 2
+size_flags_horizontal = 3
+custom_constants/separation = 30
+alignment = 1
+
+[node name="GameResult" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+margin_right = 600.0
+margin_bottom = 49.0
+text = "You stopped the invasion!"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+margin_top = 79.0
+margin_right = 600.0
+margin_bottom = 128.0
+
+[node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer2/HBoxContainer"]
+margin_right = 298.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+text = "Final Score:"
+
+[node name="Score" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer2/HBoxContainer"]
+margin_left = 302.0
+margin_right = 600.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+text = "0"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+margin_top = 158.0
+margin_right = 600.0
+margin_bottom = 209.0
+
+[node name="Play Again" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2/CenterContainer"]
+margin_left = 148.0
+margin_right = 452.0
+margin_bottom = 51.0
+text = "Play Again!"
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/CenterContainer/VBoxContainer2"]
+margin_top = 239.0
+margin_right = 600.0
+margin_bottom = 290.0
+
+[node name="StartScreen" type="Button" parent="MarginContainer/CenterContainer/VBoxContainer2/CenterContainer2"]
+margin_left = 16.0
+margin_right = 584.0
+margin_bottom = 51.0
+text = "Return to Title Screen"
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/CenterContainer/Play Again" to="." method="_on_Play_Again_pressed"]
+[connection signal="pressed" from="MarginContainer/CenterContainer/VBoxContainer2/CenterContainer2/StartScreen" to="." method="_on_StartScreen_pressed"]

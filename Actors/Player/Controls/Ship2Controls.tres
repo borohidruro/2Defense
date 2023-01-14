@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Actors/Player/Controls/ShipControls.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+rotate_clockwise = "ui_right"
+rotate_counter_clockwise = "ui_left"
